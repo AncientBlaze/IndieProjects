@@ -29,6 +29,8 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="tel"] {
+    outline: none;
+    border: none !important;
     width: calc(100% - 22px);
     padding: 10px;
     margin: 8px 0;
@@ -59,4 +61,10 @@ a {
 
 input[type="checkbox"] {
     accent-color: #4caf50;
+}
+
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
