@@ -1,12 +1,8 @@
 import { useState } from 'react'
 import profilePic from '../assets/profile_pic.jpeg'
-function Portfolio() {
-    const [isDark, setIsDark] = useState(false);
-    const toggleDarkMode = () => {
-        setIsDark(!isDark);
-    };
+function Portfolio({ passedMode }) {
     return (
-        <>
+        <div className={passedMode ? "dark" : "light"}>
             <section className="h-auto w-auto p-20 flex items-center justify-center">
                 <div className="flex flex-col justify-center items-center h-auto">
                     <div className="relative flex flex-col items-center rounded-[20px] w-[400px] mx-auto p-4 bg-white bg-clip-border shadow-3xl shadow-shadow-500 !bg-navy-800 text-white !shadow-none">
@@ -43,13 +39,10 @@ function Portfolio() {
                                 </div>
                             </div>
                         </div>
-                        <button className="mt-6 flex items-center justify-center rounded-full border-2 border-black hover:bg-gray-700 hover:text-white" onClick={toggleDarkMode}>
-                            {isDark ? <span className="text-sm font-normal text-gray-600">Switch to Light Mode</span> : <span className="text-sm font-normal text-gray-600">Switch to Dark Mode</span>}
-                        </button>
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 }
 

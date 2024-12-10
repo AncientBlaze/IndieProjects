@@ -1,10 +1,10 @@
-
 import { Link } from 'react-router'
-
-function Navbar() {
+import { useMode } from '../utils/globalState'
+function Navbar({ passedMode }) {
+    const [mode, setMode] = useMode();
     return (
-        <div>
-            <nav className="bg-gray-800">
+        <div className={mode ? "dark" : "light"}>
+            <nav className="bg-gray-800 py-10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex items-center">
@@ -18,6 +18,7 @@ function Navbar() {
                                     <Link to="/clock" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium text-4xl">Clock</Link>
                                     <Link to="/stopwatch" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium text-4xl">Stopwatch</Link>
                                     <Link to="/alarm" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium text-4xl">Alarm</Link>
+                                    <button className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium text-4xl' onClick={() => setMode(!mode)}>switch modes</button>
                                 </div>
                             </div>
                         </div>
